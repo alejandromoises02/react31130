@@ -1,0 +1,16 @@
+div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+h1{
+    font-size: 40px;
+}
+
+a{
+    margin: 10px;
+}
+
+img {
+    height: 80px;
+}

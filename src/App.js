@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Navbar } from "./componentes/Navbar/Navbar";
 
-function App() {
+const App = () => {
+
+  //Datos a pasar a Navbar
+  const name = "Alejandro";
+  const lastname = "Fernandez";
+  const categorias = [{link:"Camperas",tag:"#",id:1},{link:"Pantalones",tag:"#",id:2},{link:"Remeras",tag:"#",id:3}];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar name={name} lastname={lastname} links={categorias} />
+    </>
   );
-}
+};
 
 export default App;

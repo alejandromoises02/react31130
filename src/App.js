@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar } from "./componentes/Navbar/Navbar";
+import './App.css';
 
 const App = () => {
 
@@ -9,9 +10,10 @@ const App = () => {
   const categorias = [{link:"Camperas",tag:"#",id:1},{link:"Pantalones",tag:"#",id:2},{link:"Remeras",tag:"#",id:3}];
 
   return (
-    <>
+    <div className="App-header">
       <Navbar name={name} lastname={lastname} links={categorias} />
-    </>
+
+    </div>
   );
 };
 

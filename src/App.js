@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar } from "./componentes/Navbar/Navbar";
+import CustomButton  from "./componentes/CustomButton/CustomButton";
 import './App.css';
 
 const App = () => {
@@ -12,7 +13,7 @@ const App = () => {
   return (
     <div className="App-header">
       <Navbar name={name} lastname={lastname} links={categorias} />
-
+      <CustomButton title="Click me" color="primary" />
     </div>
   );
 };

@@ -1,6 +1,8 @@
+import { COLORS } from "../../constants/colors";
+
 const styles = {
   container: {
-    backgroundColor: "gray",
+    backgroundColor: COLORS.green,
     paddingLeft: 20,
     paddingRigth: 20,
     display: "flex",

@@ -1,6 +1,5 @@
-import React from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-export const CartWidget = ({ name, lastname, links }) => {
+export const CartWidget = () => {
   return <ShoppingCartIcon color="disabled" />;
 };

@@ -1,9 +1,8 @@
 const styles = {
   container: {
     backgroundColor: "gray",
-    marginLeft: 20,
-    marginRigth: 20,
-    width: "100%",
+    paddingLeft: 20,
+    paddingRigth: 20,
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center"

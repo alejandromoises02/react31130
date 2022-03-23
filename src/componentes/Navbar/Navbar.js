@@ -3,7 +3,7 @@ import logo from "../../imgs/logoTienda.png";
 import { CartWidget } from "../CartWidget/CartWidget";
 import styles from "./Navbar.Styles";
 
-export const Navbar = ({ name }) => {
+export const Navbar = ({name}) => {
   const categorys = [
     { name: "Frutas", route: "#", id: 1 },
     { name: "Verduras", route: "#", id: 2 },

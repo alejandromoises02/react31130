@@ -2,6 +2,7 @@ import { COLORS } from "../../constants/colors";
 
 const styles = {
   container: {
+    width: "100%",
     backgroundColor: COLORS.green,
     paddingLeft: 20,
     paddingRigth: 20,

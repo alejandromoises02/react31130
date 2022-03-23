@@ -20,3 +20,5 @@ Que suele contener un componente
     -State
     -Ciclo de vida
     -Metodos de ciclo de vida
+
+

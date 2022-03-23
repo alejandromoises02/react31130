@@ -20,5 +20,7 @@ export default App;
 
 const styles = {
   display: 'flex',
-  flexDirection: 'column'
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
 }

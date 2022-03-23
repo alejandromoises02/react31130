@@ -1,4 +1,4 @@
-Paso 1: Instalar Node, Entorno que permite ejecutar codigo js en la maquina
+/*Paso 1: Instalar Node, Entorno que permite ejecutar codigo js en la maquina
 Paso 2: Instalar y configurar webpack y babel
 PASO 2 REAL: Instalar Create React App(configura automaticamente webpack y babel)
 Paso 3: Crear el proyecto 
@@ -9,7 +9,7 @@ Paso 3: Crear el proyecto
 Paso 4: Entrar en la carpeta del proyecto
 Paso 5: Ejecutar npm start
 
-COMPONENTE
+COMPONENTES
 Crear una funcion
 Con letra Mayuscula
 Debo exportar la funcion
@@ -21,4 +21,13 @@ Que suele contener un componente
     -Ciclo de vida
     -Metodos de ciclo de vida
 
+Hooks:
+    -useState: permite cambiar el estado de un componente y por ende provoca un re-render
 
+
+
+
+
+
+    
+*/

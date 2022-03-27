@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export const ItemCount = ({ stock, initial, onAdd }) => {
+  
   const [count, setCount] = useState(initial);
 
   const handlerAdd = () => {
@@ -12,7 +13,7 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
   };
 
   const handlerAddToCart = () => {
-    onAdd(count);
+    if(count > 0) onAdd(count);
   };
 
   return (

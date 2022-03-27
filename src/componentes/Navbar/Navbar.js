@@ -13,8 +13,10 @@ export const Navbar = ({name}) => {
 
   return (
     <div style={styles.container}>
+      <div style={styles.branchContainer}>
       <img style={styles.logo} src={logo} alt="logo" />
       <h1 style={styles.title}>Bienvenido {name}</h1>
+      </div>
       <div style={styles.links}>
         <nav>
           {categorys.map((element) => {

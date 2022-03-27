@@ -23,11 +23,28 @@ Que suele contener un componente
 
 Hooks:
     -useState: permite cambiar el estado de un componente y por ende provoca un re-render
+    -useEffect: permite ejecutar una funcion cuando el componente se renderiza
 
+Ciclo de vida con class:
+    -mount: cuando el componente se monta
+    -update: cuando el componente se actualiza
+    -unmount: cuando el componente se desmonta
 
+    mount:
+    -constructor: se ejecuta al crear el componente
+    -render: se ejecuta al renderizar el componente
+    -componentDidMount: se ejecuta al montar el componente
 
+    update: 
+    -render: se ejecuta al renderizar el componente
+    -shouldComponentUpdate: se ejecuta antes de actualizar el componente
 
+    unmount:
+    -componentWillUnmount: se ejecuta antes de desmontar el componente
 
+    useEffect(() => {}, [])
 
+Promesas
+pending-fulfilld-rejected
     
 */

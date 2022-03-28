@@ -1,6 +1,12 @@
 import React from "react";
 import { COLORS } from "../../constants/colors";
 
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Button, CardActionArea, CardActions } from '@mui/material';
+
 const styles = {
   container: {
     width: window.innerHeight > 900 ? "25%" : "90%",
@@ -8,31 +14,36 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     margin: 20,
-    textAlign: "center",
-    backgroundColor: "rgba(229, 249, 147, 0.7)",
-    borderRadius: 20,
+    backgroundColor: "rgba(249, 220, 92, 0.3)",
   },
-  imgContainer: {
-    width: "100%",
-    height: 300,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  img: {
-    width: "60%"
-  }
 };
 
 export const Item = ({ product }) => {
   
   return (
-    <div style={styles.container}>
-      <div style={styles.imgContainer}>
-        <img style={styles.img} src={product.url} alt={product.name} />
-      </div>
-      <h3>{product.name}</h3>
-      <p>${product.price}</p>
-    </div>
+    <Card sx={{ maxWidth: 345 }} style={styles.container}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image={product.url}
+          alt={product.name}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+          {product.name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+          ${product.price}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Agregar al carrito
+        </Button>
+      </CardActions>
+    </Card>
   );
+
 };

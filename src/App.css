@@ -40,3 +40,10 @@
 a:link, a:visited, a:active {
   text-decoration:none;
 }
+
+#root {
+  display: flex;
+  flex-direction: "column";
+  justify-content: "center";
+  align-items: "center";
+}

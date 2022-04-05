@@ -46,5 +46,12 @@ Ciclo de vida con class:
 
 Promesas
 pending-fulfilld-rejected
+
+
+Routing y Navegacion
+react-router-dom
     
+
+Event(e):El objeto evento que se envía a los componentes cuando se produce un evento.
+Event.target: El elemento HTML que recibió el evento.
 */

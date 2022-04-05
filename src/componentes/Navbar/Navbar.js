@@ -2,32 +2,33 @@ import React from "react";
 import logo from "../../imgs/logoTienda.png";
 import { CartWidget } from "../CartWidget/CartWidget";
 import styles from "./Navbar.Styles";
+import { NavLink } from "react-router-dom";
 
-export const Navbar = ({name}) => {
+export const Navbar = () => {
   const categorys = [
-    { name: "Frutas", route: "#", id: 1 },
-    { name: "Verduras", route: "#", id: 2 },
-    { name: "Hortalizas", route: "#", id: 3 },
-    { name: "Semillas", route: "#", id: 4 }
+    { name: "Electronics", route: "categories/electronics", id: "electronics" },
+    { name: "Jewelery", route: "categories/jewelery", id: "jewelery" },
+    { name: "Men's clothing", route: "categories/men's clothing", id: "men's clothing" },
+    { name: "Women's clothing", route: "categories/women's clothing", id: "women's clothing" }
   ];
 
   return (
     <div style={styles.container}>
       <div style={styles.branchContainer}>
-      <img style={styles.logo} src={logo} alt="logo" />
-      <h1 style={styles.title}>Bienvenido {name}</h1>
+        <NavLink to="/">
+          <img style={styles.logo} src={logo} alt="logo" />
+        </NavLink>
+        <h1 style={styles.title}>Bienvenido</h1>
       </div>
       <div style={styles.links}>
         <nav>
-          {categorys.map((element) => {
-            return (
-              <a style={styles.link} key={element.id} href={element.route}>
-                {element.name}
-              </a>
-            );
+         
+         
           })}
         </nav>
-        <CartWidget />
+        <NavLink to="/cart">
+          <CartWidget />
+        </NavLink>
       </div>
     </div>
   );

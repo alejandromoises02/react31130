@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ItemList } from "./ItemList";
 import ClipLoader from "react-spinners/ClipLoader";
+import { ItemDetail } from "./ItemDetail.js";
 
 
-export const ItemListContainer = ({ greeting }) => {
-  const [products, setProducts] = useState([]);
+export const ItemDetailContainer = ({ greeting }) => {
+  const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const { categoryID } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    const URL = categoryID
-      ? `https://fakestoreapi.com/products/category/${categoryID}`
-      : "https://fakestoreapi.com/products";
+    const URL = `https://fakestoreapi.com/products/${id}`;
 
-    const getitems = async () => {
+    const getitem = async () => {
       try {
         const response = await fetch(URL);
         const data = await response.json();
-        setProducts(data);
+        setProduct(data);
       } catch {
         setError(true);
       } finally {
@@ -28,12 +26,11 @@ export const ItemListContainer = ({ greeting }) => {
       }
     };
 
-    getitems();
-  }, [categoryID]);
+    getitem();
+  }, [id]);
 
   return (
     <>
-      <h1>{greeting}</h1>
       {loading ? (
         <span>
           <ClipLoader color={"green"} loading={loading} size={150} />
@@ -41,17 +38,8 @@ export const ItemListContainer = ({ greeting }) => {
       ) : error ? (
         <h1>Lo sentimos hubo un error</h1>
       ) : (
-        <ItemList products={products} />
+        <ItemDetail product={product} />
       )}
     </>
   );
 };
-
-/*
-const url = "";
-if(name){
-  url=`ulrconcantegoria${name}`;
-}else{
-url="urlproductosgenerales"
-}
-fetch(url)*/

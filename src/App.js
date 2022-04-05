@@ -1,20 +1,30 @@
 import React from "react";
-import { Navbar } from "./componentes/Navbar/Navbar";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Navbar } from "./componentes/Navbar/Navbar";
 import { ItemListContainer } from "./Containers/ItemList/ItemListContainer";
+import { ItemDetailContainer } from "./Containers/ItemList/ItemDetail/ItemDetailContainer";
+import { Cart } from "./componentes/Cart/Cart.js";
+//import { ComponenteDeEventos } from "./ComponenteDeEventos"
 
 const App = () => {
-
-  //Datos a pasar a Navbar
-  const name = "Alejandro";
-
-  
+  const branch = "Tienda Online";
 
   return (
-    <div style={styles}>
-      <Navbar name={name} />
-      <ItemListContainer greeting={"Fruteria Online"} />
-    </div>
+
+    <BrowserRouter>
+      <div style={styles}>
+        <Navbar />
+
+        <Routes>
+          <Route path="/" element={<ItemListContainer greeting={branch} />} />
+          <Route path="/categories/:categoryID" element={<ItemListContainer greeting={branch} />} />
+          <Route path="/product/:id" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
+
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 };
 
@@ -26,3 +36,5 @@ const styles = {
   justifyContent: "center",
   alignItems: "center"
 };
+
+

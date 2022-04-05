@@ -1,11 +1,11 @@
 import React from "react";
-import { COLORS } from "../../constants/colors";
+import { Link } from "react-router-dom";
 
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { Button, CardActionArea, CardActions } from "@mui/material";
 
 const styles = {
   container: {
@@ -14,36 +14,38 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     margin: 20,
-    backgroundColor: "rgba(249, 220, 92, 0.3)",
-  },
+    backgroundColor: "rgba(249, 220, 92, 0.3)"
+  }
 };
 
 export const Item = ({ product }) => {
-  
+  const URL = `/product/${product.id}`;
+
   return (
     <Card sx={{ maxWidth: 345 }} style={styles.container}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image={product.url}
-          alt={product.name}
+          image={product.image}
+          alt={product.title}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-          {product.name}
+            {product.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          ${product.price}
+            ${product.price}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Agregar al carrito
-        </Button>
+        <Link to={URL}>
+          <Button size="small" color="primary">
+            Ver Detalles
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );
-
 };

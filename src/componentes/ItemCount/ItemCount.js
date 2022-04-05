@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export const ItemCount = ({ stock, initial, onAdd }) => {
   
   const [count, setCount] = useState(initial);
 
   const handlerAdd = () => {
+    console.log(count);
+    console.log(stock);
     if(count < stock) setCount(count + 1);
   };
 
@@ -18,9 +20,9 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <div>
-      <button onClick={handlerAdd}>+</button>
-      <span>{count}</span>
       <button onClick={handlerSubtract}>-</button>
+      <span>{count}</span>
+      <button onClick={handlerAdd}>+</button>
       <button onClick={handlerAddToCart}>Agregar al Carrito</button>
     </div>
   );

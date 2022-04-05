@@ -1,4 +1,4 @@
-export const ListaUsuarios = ({ users,manejarEliminarUsuario }) => {
+/*export const ListaUsuarios = ({ users,manejarEliminarUsuario }) => {
   
     const handlerClick = (id) => {
     manejarEliminarUsuario(id);
@@ -14,4 +14,4 @@ export const ListaUsuarios = ({ users,manejarEliminarUsuario }) => {
       ))}
     </>
   );
-};
+};*/

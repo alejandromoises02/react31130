@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/*import React, { useState } from "react";
 import { ListaUsuarios } from "./ListaUsuarios.js";
 import { uid } from "uid";
 
@@ -12,9 +12,9 @@ export const ComponenteDeEventos = () => {
     //console.log(event.target);
     //event.stopPropagation();
     //console.log("Click en el boton");
-    /*const copia = users.slice(0);
-    copia.push(user);
-    setUsers(copia);*/
+    //const copia = users.slice(0);
+    //copia.push(user);
+    //setUsers(copia);
 
     setUsers([...users, { nombre: user, id: uid() }]);
   };
@@ -45,7 +45,7 @@ export const ComponenteDeEventos = () => {
     <div>
         <h1>ComponenteDeEventos</h1>
       <input type="text" onChange={manejarChange} />
-      <button id="btn" onClick={manejarClick}>
+      <button id="btn" onClic={manejarClick}>
         Boton
       </button>
       <ListaUsuarios
@@ -54,4 +54,4 @@ export const ComponenteDeEventos = () => {
       />
     </div>
   );
-};
+};*/

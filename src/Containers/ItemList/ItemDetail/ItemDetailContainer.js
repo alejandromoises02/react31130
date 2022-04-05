@@ -18,7 +18,7 @@ export const ItemDetailContainer = ({ greeting }) => {
       try {
         const response = await fetch(URL);
         const data = await response.json();
-        setProduct(data);
+        setProduct({...data,stock:Math.floor((Math.random() * (100 - 1 + 1)) + 1)});
       } catch {
         setError(true);
       } finally {

@@ -8,8 +8,16 @@ export const Navbar = () => {
   const categorys = [
     { name: "Electronics", route: "categories/electronics", id: "electronics" },
     { name: "Jewelery", route: "categories/jewelery", id: "jewelery" },
-    { name: "Men's clothing", route: "categories/men's clothing", id: "men's clothing" },
-    { name: "Women's clothing", route: "categories/women's clothing", id: "women's clothing" }
+    {
+      name: "Men's clothing",
+      route: "categories/men's clothing",
+      id: "men's clothing"
+    },
+    {
+      name: "Women's clothing",
+      route: "categories/women's clothing",
+      id: "women's clothing"
+    }
   ];
 
   return (
@@ -22,9 +30,11 @@ export const Navbar = () => {
       </div>
       <div style={styles.links}>
         <nav>
-         
-         
-          })}
+          {categorys.map((category) => (
+            <NavLink style={styles.link} key={category.id} to={`/${category.route}`}>
+              {category.name}
+            </NavLink>
+          ))}
         </nav>
         <NavLink to="/cart">
           <CartWidget />

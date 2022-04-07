@@ -54,4 +54,9 @@ react-router-dom
 
 Event(e):El objeto evento que se envía a los componentes cuando se produce un evento.
 Event.target: El elemento HTML que recibió el evento.
+
+Context Api
+    -createContext: crea un contexto
+    -Consumer: permite consumir el contexto, pero con el hook useContext tenemos un mejor resultado
+    -Provider: permite proveer el contexto
 */

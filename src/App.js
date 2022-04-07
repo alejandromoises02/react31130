@@ -5,25 +5,27 @@ import { Navbar } from "./componentes/Navbar/Navbar";
 import { ItemListContainer } from "./Containers/ItemList/ItemListContainer";
 import { ItemDetailContainer } from "./Containers/ItemList/ItemDetail/ItemDetailContainer";
 import { Cart } from "./componentes/Cart/Cart.js";
+import CustomProvider  from "./context/context";
 //import { ComponenteDeEventos } from "./ComponenteDeEventos"
 
 const App = () => {
   const branch = "Tienda Online";
 
   return (
-
     <BrowserRouter>
-      <div style={styles}>
+      <CustomProvider>
         <Navbar />
 
         <Routes>
           <Route path="/" element={<ItemListContainer greeting={branch} />} />
-          <Route path="/categories/:categoryID" element={<ItemListContainer greeting={branch} />} />
+          <Route
+            path="/categories/:categoryID"
+            element={<ItemListContainer greeting={branch} />}
+          />
           <Route path="/product/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<Cart />} />
-
         </Routes>
-      </div>
+      </CustomProvider>
     </BrowserRouter>
   );
 };
@@ -36,5 +38,3 @@ const styles = {
   justifyContent: "center",
   alignItems: "center"
 };
-
-

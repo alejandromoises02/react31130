@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
+import { contexto } from "../../context/context";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -20,6 +21,13 @@ const styles = {
 
 export const Item = ({ product }) => {
   const URL = `/product/${product.id}`;
+
+  const {usuarios,addUsuario} = useContext(contexto);
+  
+
+  const manejarClick = () => {
+    addUsuario();
+  }
 
   return (
     <Card sx={{ maxWidth: 345 }} style={styles.container}>

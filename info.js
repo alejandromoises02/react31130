@@ -59,4 +59,72 @@ Context Api
     -createContext: crea un contexto
     -Consumer: permite consumir el contexto, pero con el hook useContext tenemos un mejor resultado
     -Provider: permite proveer el contexto
+
+
+const productos = [	
+  {id:1, nombre: "tomate", stock:100, precio: 200, categoria: "fruta", destacado: true},
+  {id:2, nombre: "manzana", stock:100, precio: 200, categoria: "fruta", destacado: true},
+  {id:3, nombre: "pera", stock:100, precio: 200, categoria: "fruta", destacado: false},
+  {id:4, nombre: "zapallo", stock:100, precio: 200, categoria: "verdura", destacado: true},
+  {id:5, nombre: "papa", stock:100, precio: 200, categoria: "verdura", destacado: false},
+]
+
+METODOS DE ARRAYS:
+const productoTodos = productos
+
+const productosDestacados = productos.filter(producto => producto.destacado);
+//filter devuelve siempre un array
+//false === true --> false
+//true === true --> true
+
+const categoria = "fruta";
+const productosFrutas = productos.filter(producto => producto.categoria === categoria)
+
+productosFrutas = [
+  {id:1, nombre: "tomate", stock:100, precio: 200, categoria: "fruta", destacado: true},
+  {id:2, nombre: "manzana", stock:100, precio: 200, categoria: "fruta", destacado: true},
+  {id:3, nombre: "pera", stock:100, precio: 200, categoria: "fruta", destacado: false},
+];
+
+const id = 1;
+
+const producto = productos.find(producto => producto === id)
+producto = {id:1, nombre: "tomate", stock:100, precio: 200, categoria: "fruta", destacado: true}
+producto.id;
+producto:nombre;
+
+const nombres = ["luis","pepe","ale"]
+const nombre = nombres.find(nombre === "luis") // nombre= "luis";
+
+
+/*Filtrar por categorias --->filter
+Filtrar por destacado ---> filter
+Obtener un producto ---> find
+Mostrar en pantalla ---> map
+
+CONTEXT: Forma de pasar datos sin usar props
+    1-Crear contexto createContext
+        const context = createContext();
+    2-Obtener el Provider
+        const {Provider} = context;
+    3-Patron provider(en los componentes)
+        <Provider>
+            <Componentes/>
+        </Provider>
+    4-Armar componente context
+    const miContext = ({children}) =>{
+        cosa1
+        cosa2
+        return <Provider value = {{cosa1,cosa2}}>
+        {children}
+        </Provider>
+    }
+    5-Usar el contexto y el hook useContext
+    const {cosa1} = useContext(contexto);
+
+
+
+
 */
+
+

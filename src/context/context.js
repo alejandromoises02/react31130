@@ -4,42 +4,68 @@ export const contexto = createContext();
 const { Provider } = contexto;
 
 const CustomProvider = ({ children }) => {
-  const [usuarios, setUsuarios] = useState([
-    { nombre: "Ale", id: 1 },
-    { nombre: "Juan", id: 2 }
-  ]);
+  const [cart, setCart] = useState([]);
 
-  const addUsuario = (info) => {
-      //opcion 1, copiar el array por algun metodo valido, hacer un push a la copia y asignarlo con el setEstado
-      //opcion 2 (MEJOR OPCION) hacer uso de spread
-    console.log("esta funcion añade usuarios");
+  const addProduct = (product, qty) => {
+     const newProduct = {
+       ...product,
+       qty
+     };
+     if(IsinCart(product.id)){
+       const productFind = cart.find(product => product.id === newProduct.id);
+       const index = cart.indexOf(productFind);
+       const aux = [...cart];
+       aux[index].qty += qty;//aux[index].qty = aux[index].qty + qty;
+       setCart(aux);
+     }else{
+       setCart([...cart,newProduct]);
+       /*
+       const copia = cart.slice(0);
+       copia.push(newProduct);
+       setCart(copia);
+       //setCart(cart.slice(0).push(newPruct));
+       */ 
+     }
   };
 
-  const deleteUsuario = (id) => {
+  const deleteProduct = (id) => {
+    console.log();
       //Usar un filter para eliminar el id indicado
     console.log("esta funcion borra usuarios");
   };
-
-  const IsinUsuarios = (id) => {
-      //usar un Find para determinar si un objeto existe dentro del array
+  
+  const IsinCart = (id) => {
+      return false;
   };
 
-  const getCantidadUsuarios = () => {
+  const getProductsQty = () => {
       //foraech
     console.log("esta funcion devuelve la cantidad de usarios");
   };
 
-  const clearLista = () => {
+  const clearCart = () => {
     setUsuarios([]);
   }
 
+  const ContextValue = {
+    cart,
+    addProduct,
+    deleteProduct,
+    IsinCart,
+    getProductsQty,
+    clearCart
+  }
+
   return (
-    <Provider
-      value={{ usuarios, addUsuario, deleteUsuario, getCantidadUsuarios, clearLista }}
-    >
+    <Provider value={ContextValue}>
       {children}
     </Provider>
   );
 };
 
 export default CustomProvider;
+
+
+
+
+

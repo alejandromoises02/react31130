@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { contexto } from "../../context/context";
 
@@ -16,18 +16,22 @@ const styles = {
     alignItems: "center",
     margin: 20,
     backgroundColor: "rgba(249, 220, 92, 0.3)"
+  },
+  title: {
+    textOverflow: "ellipsis",
+    overflow: "hidden",
+    height: 100,
   }
 };
 
 export const Item = ({ product }) => {
   const URL = `/product/${product.id}`;
 
-  const {usuarios,addUsuario} = useContext(contexto);
-  
+  const { usuarios, addUsuario } = useContext(contexto);
 
   const manejarClick = () => {
     addUsuario();
-  }
+  };
 
   return (
     <Card sx={{ maxWidth: 345 }} style={styles.container}>
@@ -39,7 +43,12 @@ export const Item = ({ product }) => {
           alt={product.title}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            style={styles.title}
+          >
             {product.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">

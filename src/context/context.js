@@ -44,7 +44,7 @@ const CustomProvider = ({ children }) => {
   };
 
   const clearCart = () => {
-    setUsuarios([]);
+    setCart([]);
   }
 
   const ContextValue = {

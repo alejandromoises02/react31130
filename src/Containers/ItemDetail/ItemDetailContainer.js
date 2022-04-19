@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { doc, getDoc, collection } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import { ItemDetail } from "./ItemDetail.js";
+import { db } from "../../firebase/firebase";
 
 
 export const ItemDetailContainer = ({ greeting }) => {
@@ -12,6 +14,17 @@ export const ItemDetailContainer = ({ greeting }) => {
   const { id } = useParams();
 
   useEffect(() => {
+    
+    const productSCollection = collection(db, "productos");
+    const refDoc = doc(productSCollection,id)
+    getDoc(refDoc)
+    .then((result)=>{
+      setProduct(result.data());
+    })
+
+
+
+
     const URL = `https://fakestoreapi.com/products/${id}`;
 
     const getitem = async () => {

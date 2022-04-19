@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { getDocs, collection, query, where } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import { ItemList } from "./ItemList";
 import ClipLoader from "react-spinners/ClipLoader";
-
+import { db } from "../../firebase/firebase";
 
 export const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
@@ -11,7 +12,37 @@ export const ItemListContainer = ({ greeting }) => {
 
   const { categoryID } = useParams();
 
+
   useEffect(() => {
+    
+    const productsCollection = collection(db, "productos");
+    const q = query(
+      productsCollection, 
+      where("category", "==", "men's clothing"),
+      where("price",">","100"));
+    getDocs(q)
+    .then((result)=>{
+      const docs = result.docs;
+      const lista = docs.map(producto => {
+        const id = producto.id
+        const product = {
+          id,
+          ...producto.data()
+        }
+        return product;
+      })
+      console.log(lista);
+      setProducts(lista);
+    })
+    .catch(error => {console.log(error)})
+    .finally(()=>{
+      setLoading(false);
+    })
+
+
+
+
+/*
     const URL = categoryID
       ? `https://fakestoreapi.com/products/category/${categoryID}`
       : "https://fakestoreapi.com/products";
@@ -28,7 +59,7 @@ export const ItemListContainer = ({ greeting }) => {
       }
     };
 
-    getitems();
+    getitems();*/
   }, [categoryID]);
 
   return (
